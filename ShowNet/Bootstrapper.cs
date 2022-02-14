@@ -47,6 +47,12 @@ public class Bootstrapper : BootstrapperBase
         RegisterViewModels();
     }
 
+    protected override void OnExit(object sender, EventArgs e)
+    {
+        NLog.LogManager.Shutdown();
+        base.OnExit(sender, e);
+    }
+
     private void RegisterViewModels()
     {
         _container.Singleton<ShellViewModel, ShellViewModel>();
