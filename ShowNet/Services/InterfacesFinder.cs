@@ -43,8 +43,8 @@ namespace ShowNet.Services
 
             versionResult +=
                 inter.Supports(NetworkInterfaceComponent.IPv6)
-                    ? "IPv6"
-                    : "IPv6 not supported";
+                    ? " IPv6"
+                    : " IPv6 not supported";
 
             return versionResult;
         }
