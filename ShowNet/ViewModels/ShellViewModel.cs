@@ -4,9 +4,9 @@ namespace ShowNet.ViewModels;
 
 public class ShellViewModel : Conductor<Screen>
 {
-    public ShellViewModel(MainViewModel mainViewModel, InterfacesViewModel interfacesViewModel)
+    public ShellViewModel(MainViewModel mainViewModel)
     {
-        ChangeView(interfacesViewModel);
+        ChangeView(mainViewModel);
     }
 
     private async void ChangeView(Screen screen)
