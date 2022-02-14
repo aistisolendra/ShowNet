@@ -5,7 +5,6 @@ using System.Threading;
 using System.Windows;
 using Caliburn.Micro;
 using ShowNet.Services;
-using ShowNet.Services.Interfaces;
 using ShowNet.ViewModels;
 
 namespace ShowNet;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Caliburn.Micro;
-using ShowNet.Services.Interfaces;
+using ShowNet.Services;
 
 namespace ShowNet.ViewModels;
 
