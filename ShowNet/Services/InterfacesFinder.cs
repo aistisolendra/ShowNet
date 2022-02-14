@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 
@@ -12,6 +13,7 @@ namespace ShowNet.Services
 
     public class InterfacesFinder : IInterfacesFinder
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         private List<Interface> _interfaces;
 
         public InterfacesFinder()
@@ -28,14 +30,27 @@ namespace ShowNet.Services
 
         public void UpdateInterfaces()
         {
-            _interfaces = NetworkInterface
-                .GetAllNetworkInterfaces()
-                .Select(i => new Interface(i, GetIpVersions(i)))
-                .ToList();
+            try
+            {
+                _interfaces = NetworkInterface
+                    .GetAllNetworkInterfaces()
+                    .Select(i => new Interface(i, GetIpVersions(i)))
+                    .ToList();
+            }
+            catch (ArgumentNullException e)
+            {
+                Logger.Error(e);
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
+            }
         }
 
         private string GetIpVersions(NetworkInterface inter)
         {
+            if (inter == null) throw new ArgumentNullException();
+
             string versionResult =
                 inter.Supports(NetworkInterfaceComponent.IPv4)
                     ? "IPv4"
