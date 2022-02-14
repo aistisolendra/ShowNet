@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
 using Caliburn.Micro;
 using ShowNet.Services;
+using ShowNet.Services.Interfaces;
 using ShowNet.ViewModels;
 
 namespace ShowNet;
@@ -14,6 +17,8 @@ public class Bootstrapper : BootstrapperBase
     public Bootstrapper()
     {
         Initialize();
+
+        Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
     }
 
     protected override void OnStartup(object sender, StartupEventArgs e)
@@ -39,15 +44,15 @@ public class Bootstrapper : BootstrapperBase
     protected override void Configure()
     {
         RegisterNecessary();
-        RegisterViewModels();
         RegisterServices();
+        RegisterViewModels();
     }
 
     private void RegisterViewModels()
     {
-        _container.PerRequest<ShellViewModel, ShellViewModel>();
-        _container.PerRequest<InterfacesViewModel>();
-        _container.PerRequest<MainViewModel>();
+        _container.Singleton<ShellViewModel, ShellViewModel>();
+        _container.Singleton<InterfacesViewModel>();
+        _container.Singleton<MainViewModel>();
     }
 
     private void RegisterNecessary()
@@ -58,6 +63,6 @@ public class Bootstrapper : BootstrapperBase
 
     private void RegisterServices()
     {
-        _container.PerRequest<IInterfacesFinder, InterfacesFinder>();
+        _container.PerRequest<InterfacesFinder>();
     }
 }
