@@ -58,6 +58,6 @@ public class Bootstrapper : BootstrapperBase
 
     private void RegisterServices()
     {
-        _container.PerRequest<InterfacesFinder>();
+        _container.PerRequest<IInterfacesFinder, InterfacesFinder>();
     }
 }
