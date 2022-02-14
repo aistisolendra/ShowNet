@@ -8,6 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\Icon\16\Logo.ico" />
+    <None Remove="Resources\Images\Icon\16\LogoNoBG.ico" />
+    <None Remove="Resources\Images\Icon\32\Logo.ico" />
+    <None Remove="Resources\Images\Icon\32\LogoNoBG.ico" />
+    <None Remove="Resources\Images\Icon\48\Logo.ico" />
+    <None Remove="Resources\Images\Icon\48\LogoNoBG.ico" />
+    <None Remove="Resources\Images\Icon\64\Logo.ico" />
+    <None Remove="Resources\Images\Icon\64\LogoNoBG.ico" />
+    <None Remove="Resources\Images\Icon\NoBgPng\Logo.png" />
+    <None Remove="Resources\Images\Logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Caliburn.Micro" Version="4.0.173" />
     <PackageReference Include="NLog" Version="4.7.13" />
   </ItemGroup>
@@ -15,6 +28,21 @@
   <ItemGroup>
     <Folder Include="GeneralHelpers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Icon\16\Logo.ico" />
+    <Resource Include="Resources\Images\Icon\16\LogoNoBG.ico" />
+    <Resource Include="Resources\Images\Icon\256\Logo.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Icon\32\Logo.ico" />
+    <Resource Include="Resources\Images\Icon\32\LogoNoBG.ico" />
+    <Resource Include="Resources\Images\Icon\48\Logo.ico" />
+    <Resource Include="Resources\Images\Icon\48\LogoNoBG.ico" />
+    <Resource Include="Resources\Images\Icon\64\Logo.ico" />
+    <Resource Include="Resources\Images\Icon\64\LogoNoBG.ico" />
+    <Resource Include="Resources\Images\Icon\NoBgPng\Logo.png" />
   </ItemGroup>
 
   <ItemGroup>
