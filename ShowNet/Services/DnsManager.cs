@@ -7,7 +7,16 @@ using ShowNet.Models;
 
 namespace ShowNet.Services
 {
-    public class DnsManager
+    public interface IDnsManager
+    {
+        Task<string> GetCurrentDnsStringAsync();
+
+        string GetDnsProvider(string dnsString);
+
+        Task SetDnsAsync(DnsHosts host);
+    }
+
+    public class DnsManager : IDnsManager
     {
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
